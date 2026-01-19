@@ -7,10 +7,10 @@ export class gamePlay extends Component {
     dataCha: any = null;
 
     @property({ type: Node })
-    charater = null;
+    charater: Node | null = null;
 
     @property({ type: Node })
-    btn = null;
+    btn: Node | null = null;
 
 
     start() {
@@ -25,9 +25,9 @@ export class gamePlay extends Component {
         let t = this;
 
         if (isAct) {
-            t.btn.getChildByName("btn_jump").on(Node.EventType.TOUCH_START, t.actionJump, t);
+            t.btn?.getChildByName("btn_jump")?.on(Node.EventType.TOUCH_START, t.actionJump, t);
         } else {
-            t.btn.getChildByName("btn_jump").off(Node.EventType.TOUCH_START, t.actionJump, t);
+            t.btn?.getChildByName("btn_jump")?.off(Node.EventType.TOUCH_START, t.actionJump, t);
         }
 
 
@@ -36,7 +36,7 @@ export class gamePlay extends Component {
 
     actionRun() {
         let t = this;
-
+        let powerJump = new Vec3(50, 0, 0);
         // t.charater.getComponent(RigidBody2D).applyForce()
         console.log("run")
 
@@ -44,10 +44,9 @@ export class gamePlay extends Component {
 
     actionJump() {
         let t = this;
-        let rigi = t.charater.getComponent(RigidBody2D);
-        rigi ?
-            rigi.applyForce(new Vec2(0, 100), new Vec2(0, 0), false) : log("WTF");
-
+        let powerJump = new Vec3(0, 50, 0);
+        let poOrigin = t.charater?.position;
+        t.charater?.setPosition(Vec3.add(new Vec3, poOrigin, powerJump))
         console.log("jump")
 
 
