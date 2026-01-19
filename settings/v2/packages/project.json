@@ -20,5 +20,23 @@
     "legacyFbxImporter": {
       "visible": true
     }
+  },
+  "physics": {
+    "collisionGroups": [
+      {
+        "index": 1,
+        "name": "ground"
+      },
+      {
+        "index": 2,
+        "name": "char"
+      }
+    ],
+    "collisionMatrix": {
+      "0": 3,
+      "1": 5,
+      "2": 2
+    },
+    "fixedTimeStep": 0.001
   }
 }
