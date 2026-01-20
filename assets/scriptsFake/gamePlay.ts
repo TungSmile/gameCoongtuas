@@ -12,6 +12,14 @@ export class gamePlay extends Component {
     @property({ type: Node })
     btn: Node | null = null;
 
+    @property
+    powerJump: number = 8;
+
+    @property
+    runSpeed: number = 400;
+
+    @property
+    walkSpeed: number = 150;
 
     start() {
         let t = this;
@@ -61,6 +69,10 @@ export class gamePlay extends Component {
 
 
     }
+
+
+
+
 
 
 
